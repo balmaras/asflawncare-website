@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | ASF Lawn Care</title>
+<meta name="description" content="Get a free estimate from ASF Lawn Care. Serving Rome, Armuchee, Cartersville, Calhoun, Cedartown, Kingston &amp; Lindale, GA.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 18L18 6M18 6H11M18 6V13" stroke="#C8432B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="7" cy="17" r="2.3" stroke="#F6F4EE" stroke-width="1.6"/>
+        </svg>
+      </span>
+      ASF Lawn Care
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+      <li>
+        <a href="contact.html" class="nav__contact-btn" aria-label="Contact us">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6.5L12 13L21 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="3" y="4.5" width="18" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ========== CONTACT ========== -->
+<section class="section section--forest mow-stripes contact-section">
+  <div class="container contact-grid">
+
+    <div class="contact-photo" aria-hidden="true"></div>
+
+    <div class="contact-form-wrap">
+      <span class="eyebrow">Get in touch</span>
+      <h1>Contact Us</h1>
+      <p class="contact-intro">Need help with your next landscape project? Give us a call or send us a message below.</p>
+
+      <!--
+        FORMSPREE SETUP:
+        1. Create a form at https://formspree.io
+        2. Replace YOUR_FORM_ID below with your real form ID
+        3. Test a submission before going live
+      -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <fieldset>
+          <legend>Name</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="firstName">First Name <span>(required)</span></label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last Name <span>(required)</span></label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-field">
+          <label for="email">Email <span>(required)</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone <span>(required)</span></label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Tell us about your project <span>(required)</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="Briefly describe your project needs..." required></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" placeholder="Work site address...">
+        </div>
+
+        <button type="submit" class="btn btn--primary">Submit</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="nav__logo" style="margin-bottom:1rem;">
+          <span class="nav__logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 18L18 6M18 6H11M18 6V13" stroke="#C8432B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7" cy="17" r="2.3" stroke="#F6F4EE" stroke-width="1.6"/>
+            </svg>
+          </span>
+        </a>
+        <p>ASF Lawn Care<br>Commercial &amp; Residential</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Monday — Friday: 9am – 7pm</p>
+        <p>Saturday: 9am – 4pm</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><a href="mailto:almaras.asf@gmail.com">almaras.asf@gmail.com</a></p>
+        <p><a href="tel:+17063319311">(706) 331-9311</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ASF Lawn Care. All rights reserved.</span>
+      <span>Rome, GA &amp; surrounding areas</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

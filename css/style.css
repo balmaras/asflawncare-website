@@ -1,0 +1,362 @@
+/* ==========================================================================
+   ASF Lawn Care — Global Stylesheet
+   ========================================================================== */
+
+:root {
+  /* Brand palette (sampled from original site) */
+  --forest: #10442c;
+  --forest-dark: #0b331f;
+  --kelly: #197b52;
+  --kelly-light: #22935f;
+  --rust: #c8432b;
+  --rust-dark: #a8351f;
+  --cream: #f6f4ee;
+  --white: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #52564f;
+  --border: #e1ded3;
+
+  /* Type */
+  --font-heading: "Poppins", "Segoe UI", sans-serif;
+  --font-body: "DM Sans", "Segoe UI", sans-serif;
+
+  /* Layout */
+  --max-width: 1180px;
+  --radius: 10px;
+  --shadow: 0 10px 30px rgba(16, 68, 44, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1em; color: var(--ink-soft); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { max-width: 100%; display: block; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section--forest {
+  background: var(--forest);
+  color: var(--white);
+}
+
+.section--forest h1,
+.section--forest h2,
+.section--forest h3,
+.section--forest p {
+  color: var(--white);
+}
+
+.section--cream {
+  background: var(--cream);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.75rem;
+}
+
+.section--forest .eyebrow { color: #ffb199; }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary {
+  background: var(--kelly);
+  color: var(--white);
+}
+.btn--primary:hover { background: var(--kelly-light); }
+
+.btn--rust {
+  background: var(--rust);
+  color: var(--white);
+}
+.btn--rust:hover { background: var(--rust-dark); }
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--white);
+  color: var(--white);
+}
+.btn--outline:hover { background: var(--white); color: var(--forest); }
+
+/* ---------- Header / Nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--forest);
+}
+
+.nav__logo-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--kelly);
+}
+
+.nav__logo-mark svg { width: 24px; height: 24px; }
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2.1rem;
+}
+
+.nav__links a {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ink);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__links a:hover,
+.nav__links a[aria-current="page"] {
+  color: var(--kelly);
+  border-color: var(--rust);
+}
+
+.nav__contact-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav__contact-btn svg { width: 18px; height: 18px; }
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--forest);
+  margin: 5px 0;
+  transition: 0.2s ease;
+}
+
+/* ---------- Mown-stripe signature motif ----------
+   A nod to freshly mowed lawn stripes — used sparingly as a
+   background texture on hero / divider sections. */
+
+.mow-stripes {
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.045) 0px,
+    rgba(255, 255, 255, 0.045) 46px,
+    transparent 46px,
+    transparent 92px
+  );
+}
+
+.section-divider {
+  height: 64px;
+  background: var(--white);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  margin-top: -1px;
+}
+
+.section-divider--into-forest { background: var(--forest); }
+.section-divider--from-forest {
+  background: var(--white);
+  transform: rotate(180deg);
+}
+
+/* ---------- Badge (echoes the "EST. 2006" seal in the logo) ---------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--white);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  text-align: left;
+}
+
+.footer-grid .nav__logo-mark { width: 64px; height: 64px; }
+.footer-grid .nav__logo-mark svg { width: 34px; height: 34px; }
+
+.footer-col h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--forest);
+  margin-bottom: 0.9rem;
+}
+
+.footer-col p {
+  margin-bottom: 0.4rem;
+  color: var(--ink-soft);
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .nav__links {
+    position: fixed;
+    top: 73px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-130%);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .nav__links.is-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav__links a {
+    width: 100%;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__toggle { display: block; }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
