@@ -4,8 +4,7 @@ Static site for ASF Lawn Care, built with plain HTML/CSS/JS for GitHub Pages.
 
 ## Status
 
-**Built so far:** `index.html`, `contact.html`
-**Still to build:** `services.html`, `about.html`
+**Built:** `index.html`, `contact.html`, `services.html`, `about.html` — full starting site.
 
 ## Stack
 
@@ -58,12 +57,14 @@ When you're ready:
 asf-lawncare-website/
 ├── index.html
 ├── contact.html
-├── services.html      (coming next)
-├── about.html          (coming next)
+├── services.html
+├── about.html
 ├── css/
 │   ├── style.css        — shared tokens, header, footer, buttons
 │   ├── index.css         — homepage-only styles
-│   └── contact.css       — contact-page-only styles
+│   ├── contact.css       — contact-page-only styles
+│   ├── services.css      — services-page-only styles
+│   └── about.css         — about-page-only styles
 ├── js/
 │   └── main.js           — mobile nav, footer year, form submit
 ├── images/
