@@ -5,6 +5,7 @@ Static site for ASF Lawn Care, built with plain HTML/CSS/JS for GitHub Pages.
 ## Status
 
 **Built:** `index.html`, `contact.html`, `services.html`, `about.html` — full starting site.
+**Live:** published to GitHub Pages.
 
 ## Stack
 
@@ -50,6 +51,21 @@ When you're ready:
    - a `CNAME` record for `www` to `<username>.github.io`
 3. In repo Settings → Pages, add the custom domain and enable "Enforce HTTPS"
    once DNS propagates.
+
+## Next steps
+
+- [ ] **Review all four pages live** on GitHub Pages (desktop + mobile) and flag anything to fix.
+- [ ] **Consider a styling refresh.** Current build reuses the original Squarespace
+      palette and layout closely. Two directions to weigh:
+      1. Stay closer to the original screenshots (safer, more familiar to existing customers).
+      2. Go sleeker/more modern — tighter type scale, more whitespace, refined card/button
+         treatments — while keeping the same forest green + rust orange brand colors.
+      **Keep the current files as the baseline** — any restyle should be done as a new pass
+      (e.g. a `v2` branch or a copy of the CSS) so this version stays available to fall back to
+      or compare against.
+- [ ] Swap in real logo (see checklist above).
+- [ ] Swap in real Formspree ID (see checklist above).
+- [ ] Point custom domain when ready (see checklist above).
 
 ## File structure
 
