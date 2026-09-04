@@ -172,18 +172,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .nav__logo-mark {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--forest);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 2px solid var(--kelly);
+  overflow: hidden;
 }
 
-.nav__logo-mark svg { width: 24px; height: 24px; }
+.nav__logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .nav__links {
   display: flex;
@@ -297,7 +300,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .footer-grid .nav__logo-mark { width: 64px; height: 64px; }
-.footer-grid .nav__logo-mark svg { width: 34px; height: 34px; }
 
 .footer-col h4 {
   font-family: var(--font-heading);

@@ -16,14 +16,17 @@ Static site for ASF Lawn Care, built with plain HTML/CSS/JS for GitHub Pages.
 
 ## Setup checklist
 
-### 1. Logo
-The header/footer currently use a placeholder SVG mark (an orange shears
-icon in a green circle) so the site works before your real logo is ready.
-Once you upload it:
-1. Save the file(s) to `images/` — e.g. `logo-color.png` and, if you have
-   a white/reversed version, `logo-white.png`.
-2. Replace the `<span class="nav__logo-mark">...</span>` block in each
-   page's header and footer with an `<img>` tag pointing to your logo.
+### 1. Logo — ✅ done
+The real logo (`images/asf_logo.png`) is wired into the header and footer
+on all four pages, replacing the earlier placeholder SVG mark.
+- If you add a white/reversed version later (e.g. for a dark-background
+  header), save it as `images/logo-white.png` and let Claude know — it's
+  not used anywhere yet.
+- The circle is sized via `.nav__logo-mark` in `css/style.css` (48px in
+  the header, 64px in the footer) and the image is set to `object-fit:
+  contain`, so it won't stretch or crop — just make sure `asf_logo.png`
+  has a transparent or white background so it doesn't show a hard box
+  edge on the page background.
 
 ### 2. Formspree
 The contact form currently points to a placeholder:
@@ -63,7 +66,7 @@ When you're ready:
       **Keep the current files as the baseline** — any restyle should be done as a new pass
       (e.g. a `v2` branch or a copy of the CSS) so this version stays available to fall back to
       or compare against.
-- [ ] Swap in real logo (see checklist above).
+- [x] Swap in real logo (see checklist above).
 - [ ] Swap in real Formspree ID (see checklist above).
 - [ ] Point custom domain when ready (see checklist above).
 
@@ -84,7 +87,7 @@ asf-lawncare-website/
 ├── js/
 │   └── main.js           — mobile nav, footer year, form submit
 ├── images/
-│   └── (logo files go here once uploaded)
+│   └── asf_logo.png      — real logo, used in header + footer
 └── README.md
 ```
 
