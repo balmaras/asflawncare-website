@@ -174,12 +174,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .nav__logo-mark {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  overflow: hidden;
 }
 
 .nav__logo-mark img {
