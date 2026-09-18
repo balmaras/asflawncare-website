@@ -5,7 +5,7 @@ Static site for ASF Lawn Care, built with plain HTML/CSS/JS for GitHub Pages.
 ## Status
 
 **Built:** `index.html`, `contact.html`, `services.html`, `about.html` — full starting site.
-**Live:** published to GitHub Pages.
+**Live:** https://balmaras.github.io/asflawncare-website/ (repo: github.com/balmaras/asflawncare-website, branch: `master`)
 
 ## Stack
 
@@ -48,10 +48,12 @@ the raw internal field dump in the quoted history.
 No API keys or secrets are stored in this repo — Formspree's public form
 endpoint is safe to expose in client-side code.
 
-### 3. GitHub Pages
-1. Push this repo to GitHub (can stay public — no secrets in here).
-2. In repo Settings → Pages, set the source to the `main` branch, root folder.
-3. Site will be live at `https://<username>.github.io/<repo-name>/`.
+### 3. GitHub Pages — ✅ done
+Live at `https://balmaras.github.io/asflawncare-website/`.
+1. Repo pushed to GitHub (public — no secrets in here).
+2. In repo Settings → Pages, source is set to the `master` branch
+   (this repo's default/root branch is `master`, not `main`), root folder.
+3. Site confirmed live at the URL above.
 
 ### 4. Custom domain (asflawncare.com) — later
 When you're ready:
