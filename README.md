@@ -67,6 +67,12 @@ When you're ready:
 ## Next steps
 
 - [ ] **Review all four pages live** on GitHub Pages (desktop + mobile) and flag anything to fix.
+- [ ] **Add real photos back in.** The current build uses gradient/placeholder panels
+      (hero, about founder photo, areas-of-service photo) instead of actual images —
+      the original Squarespace site had real yard/landscaping photos and a founder
+      photo in these spots. Source photos (new or pulled from the old site) and place
+      them appropriately on each page: hero banner (index), founder photo (about),
+      areas-of-service photo (about), and possibly per-service thumbnails (services).
 - [ ] **Consider a styling refresh.** Current build reuses the original Squarespace
       palette and layout closely. Two directions to weigh:
       1. Stay closer to the original screenshots (safer, more familiar to existing customers).
