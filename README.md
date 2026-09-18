@@ -30,6 +30,13 @@ on all four pages, replacing the earlier placeholder SVG mark.
 
 ### 2. Formspree — ✅ done
 `contact.html` is wired to the live form: `https://formspree.io/f/xvkgojwn`.
+Notification emails arrive with a dynamic subject like "New ASF Lawn Care
+lead: Jane Smith" (set via a hidden `_subject` field, populated by
+`js/main.js` from the name fields right before submit) so leads are easy
+to scan/triage in the inbox. When replying to a lead, compose a fresh
+email to their address rather than hitting Reply on the Formspree
+notification — Reply works (Reply-To is set to the submitter), but keeps
+the raw internal field dump in the quoted history.
 1. Submit a test message through the live site and confirm it lands at
    almaras.asf@gmail.com.
 2. Free tier caps at 50 submissions/month with 30-day retention — check the

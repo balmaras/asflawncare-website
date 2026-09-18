@@ -28,6 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = true;
       status.textContent = "Sending...";
 
+      // Build a clearer email subject from the customer's name so
+      // notifications are easy to scan/triage in the inbox, e.g.
+      // "New ASF Lawn Care lead: Jane Smith"
+      const subjectField = document.getElementById("formSubject");
+      if (subjectField) {
+        const first = form.firstName.value.trim();
+        const last = form.lastName.value.trim();
+        const fullName = [first, last].filter(Boolean).join(" ");
+        subjectField.value = fullName
+          ? `New ASF Lawn Care lead: ${fullName}`
+          : "New ASF Lawn Care website lead";
+      }
+
       try {
         const response = await fetch(form.action, {
           method: "POST",
