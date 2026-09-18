@@ -28,15 +28,15 @@ on all four pages, replacing the earlier placeholder SVG mark.
   has a transparent or white background so it doesn't show a hard box
   edge on the page background.
 
-### 2. Formspree
-The contact form currently points to a placeholder:
-```
-action="https://formspree.io/f/YOUR_FORM_ID"
-```
-1. Create a form at [formspree.io](https://formspree.io) (free tier is fine
-   for low volume).
-2. Replace `YOUR_FORM_ID` in `contact.html` with your real form ID.
-3. Submit a test message and confirm it lands in your inbox.
+### 2. Formspree — ✅ done
+`contact.html` is wired to the live form: `https://formspree.io/f/xvkgojwn`.
+1. Submit a test message through the live site and confirm it lands at
+   almaras.asf@gmail.com.
+2. Free tier caps at 50 submissions/month with 30-day retention — check the
+   Formspree dashboard periodically so nothing gets lost before the window
+   closes.
+3. Free tier has lighter spam protection than paid tiers — if spam becomes
+   an issue, Formspree's built-in honeypot field is a free first step.
 
 No API keys or secrets are stored in this repo — Formspree's public form
 endpoint is safe to expose in client-side code.
@@ -67,7 +67,7 @@ When you're ready:
       (e.g. a `v2` branch or a copy of the CSS) so this version stays available to fall back to
       or compare against.
 - [x] Swap in real logo (see checklist above).
-- [ ] Swap in real Formspree ID (see checklist above).
+- [x] Swap in real Formspree ID (see checklist above).
 - [ ] Point custom domain when ready (see checklist above).
 
 ## File structure
