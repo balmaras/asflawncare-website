@@ -87,6 +87,9 @@ When you're ready:
       or compare against.
 - [x] Swap in real logo (see checklist above).
 - [x] Swap in real Formspree ID (see checklist above).
+- [x] Fixed Home page service descriptions from showing not showing (font color)
+- [x] Added photos to Home page services - can update later as needed
+   - Had to fix sizing of photos as original inclusion was streched vertically
 - [ ] Point custom domain when ready (see checklist above).
 
 ## File structure
