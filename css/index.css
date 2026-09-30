@@ -69,6 +69,7 @@
 }
 
 .service-card p {
+  color: var(--ink-soft);
   font-size: 0.93rem;
   margin-bottom: 0;
 }
