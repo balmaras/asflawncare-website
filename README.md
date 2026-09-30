@@ -66,13 +66,17 @@ When you're ready:
 
 ## Next steps
 
-- [ ] **Add real photos back in.** The current build uses gradient/placeholder panels
-      (hero, about founder photo, areas-of-service photo) instead of actual images —
-      the original Squarespace site had real yard/landscaping photos and a founder
-      photo in these spots. Source photos (new or pulled from the old site) and place
-      them appropriately on each page: hero banner (index), founder photo (about),
-      areas-of-service photo (about), and possibly per-service thumbnails (services).
 - [ ] **Review all four pages live** on GitHub Pages (desktop + mobile) and flag anything to fix.
+- [x] **Homepage service card photos — done.** Real ASF job-site photos (from Brandon's
+      personal archive, 2000s–2010s) now appear on all four homepage service cards:
+      `images/services/lawn-maintenance.jpg`, `leaf-removal.jpg`, `selected-pruning.jpg`,
+      `sod-installation.jpg` (no sod-specific photo existed, so a strong lush-lawn shot
+      stands in). Cropped to 800×600 (4:3) and lightly enhanced (color/contrast/sharpness
+      via PIL) from the originals.
+- [ ] **Add remaining real photos.** Still using gradient/placeholder panels for: hero
+      banner (index), founder photo (about), areas-of-service photo (about), and the
+      services.html page (full 11-service grid has no photos yet — homepage's 4-card
+      preview does). Brandon has 76 real photos on hand to pick from for these spots.
 - [ ] **Consider a styling refresh.** Current build reuses the original Squarespace
       palette and layout closely. Two directions to weigh:
       1. Stay closer to the original screenshots (safer, more familiar to existing customers).
