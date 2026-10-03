@@ -73,10 +73,27 @@ When you're ready:
       `sod-installation.jpg` (no sod-specific photo existed, so a strong lush-lawn shot
       stands in). Cropped to 800×600 (4:3) and lightly enhanced (color/contrast/sharpness
       via PIL) from the originals.
+- [x] **Fixed: homepage service photos displaying stretched/distorted.** `css/index.css`
+      used `aspect-ratio: 4/3` on `.service-card__img`, which rendered inconsistently.
+      Replaced with a fixed `height: 190px` + `object-fit: cover` + `flex-shrink: 0`,
+      which is guaranteed consistent across browsers. (Turned out the real symptom was
+      partly browser cache — a hard refresh was also needed after pushing the fix.)
+- [x] **Fixed: homepage service card description text invisible (white-on-white).**
+      `.section--forest p` in `style.css` sets paragraph text white for the dark-green
+      section, which also applied inside the white service cards nested in that section.
+      Added an explicit `color: var(--ink-soft)` to `.service-card p` in `index.css` to
+      override it. (The `<h3>` headings already had a color override; the `<p>` tags
+      didn't.)
+- [x] **Areas-of-Service graphic — done.** None of Brandon's 76 real photos fit this slot
+      (it needs to show the service area, not a job site), so built a custom illustrated
+      map instead: `images/areas-map.svg`, branded in site colors, with Rome marked as
+      home base and all 7 service towns (Armuchee, Cartersville, Calhoun, Cedartown,
+      Kingston, Lindale) pinned and labeled. Lightweight (~6KB) since it's vector, not a
+      photo.
 - [ ] **Add remaining real photos.** Still using gradient/placeholder panels for: hero
-      banner (index), founder photo (about), areas-of-service photo (about), and the
-      services.html page (full 11-service grid has no photos yet — homepage's 4-card
-      preview does). Brandon has 76 real photos on hand to pick from for these spots.
+      banner (index), founder photo (about). Also services.html page (full 11-service
+      grid has no photos yet — homepage's 4-card preview does). Brandon has 76 real
+      photos on hand to pick from for these spots.
 - [ ] **Consider a styling refresh.** Current build reuses the original Squarespace
       palette and layout closely. Two directions to weigh:
       1. Stay closer to the original screenshots (safer, more familiar to existing customers).
@@ -87,9 +104,6 @@ When you're ready:
       or compare against.
 - [x] Swap in real logo (see checklist above).
 - [x] Swap in real Formspree ID (see checklist above).
-- [x] Fixed Home page service descriptions from showing not showing (font color)
-- [x] Added photos to Home page services - can update later as needed
-   - Had to fix sizing of photos as original inclusion was streched vertically
 - [ ] Point custom domain when ready (see checklist above).
 
 ## File structure
