@@ -8,12 +8,12 @@
 }
 
 .contact-photo {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
   border-radius: var(--radius);
-  min-height: 460px;
-  background: linear-gradient(160deg, #1d5c3c, #0b331f 70%);
-  background-image:
-    linear-gradient(160deg, rgba(16,68,44,0.45), rgba(11,51,31,0.75)),
-    repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 30px, transparent 30px, transparent 60px);
+  box-shadow: var(--shadow);
 }
 
 .contact-intro {
@@ -88,7 +88,7 @@ legend {
 
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
-  .contact-photo { min-height: 260px; }
+  .contact-photo { height: 260px; }
 }
 
 @media (max-width: 560px) {

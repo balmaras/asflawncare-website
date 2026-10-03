@@ -90,10 +90,16 @@ When you're ready:
       home base and all 7 service towns (Armuchee, Cartersville, Calhoun, Cedartown,
       Kingston, Lindale) pinned and labeled. Lightweight (~6KB) since it's vector, not a
       photo.
-- [ ] **Add remaining real photos.** Still using gradient/placeholder panels for: hero
-      banner (index), founder photo (about). Also services.html page (full 11-service
-      grid has no photos yet — homepage's 4-card preview does). Brandon has 76 real
-      photos on hand to pick from for these spots.
+- [x] **Contact page photo — done.** `images/contact-photo.jpg` — a finished dry creek
+      bed with ornamental grasses, river rock, and a red maple branch framing the shot
+      (from `CAM00150.jpeg` in Brandon's archive). Enhanced (color/contrast/sharpness)
+      via PIL. Replaces the gradient placeholder; CSS uses a fixed height + object-fit
+      cover (same reliable pattern as the homepage service photos) rather than
+      aspect-ratio.
+- [ ] **Add remaining real photos.** Still using a gradient/placeholder panel for the
+      homepage hero banner (index) and the about-page founder photo. Also services.html
+      page (full 11-service grid has no photos yet — homepage's 4-card preview does).
+      Brandon has 76 real photos on hand to pick from for these spots.
 - [ ] **Consider a styling refresh.** Current build reuses the original Squarespace
       palette and layout closely. Two directions to weigh:
       1. Stay closer to the original screenshots (safer, more familiar to existing customers).
