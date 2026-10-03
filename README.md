@@ -90,12 +90,15 @@ When you're ready:
       home base and all 7 service towns (Armuchee, Cartersville, Calhoun, Cedartown,
       Kingston, Lindale) pinned and labeled. Lightweight (~6KB) since it's vector, not a
       photo.
-- [x] **Contact page photo — done.** `images/contact-photo.jpg` — a finished dry creek
-      bed with ornamental grasses, river rock, and a red maple branch framing the shot
-      (from `CAM00150.jpeg` in Brandon's archive). Enhanced (color/contrast/sharpness)
-      via PIL. Replaces the gradient placeholder; CSS uses a fixed height + object-fit
-      cover (same reliable pattern as the homepage service photos) rather than
-      aspect-ratio.
+- [x] **Contact page graphic — done (switched from photo to illustration).** Initially
+      used `images/contact-photo.jpg` (a real dry creek bed photo from the archive), but
+      per request this was replaced with a custom illustration instead:
+      `images/contact-illustration.svg` — a welcoming front-yard scene (house, mowed
+      lawn with signature stripe texture, paved walkway, trimmed shrubs, mailbox) ending
+      in a "We'd love to hear from you" caption. Same rationale as the Areas-of-Service
+      map: no real photo fit this specific "come say hi" purpose, so a branded vector
+      graphic was built instead. Lightweight (~6KB). `contact-photo.jpg` is left in the
+      `images/` folder but no longer referenced, in case it's wanted elsewhere later.
 - [ ] **Add remaining real photos.** Still using a gradient/placeholder panel for the
       homepage hero banner (index) and the about-page founder photo. Also services.html
       page (full 11-service grid has no photos yet — homepage's 4-card preview does).
