@@ -92,11 +92,18 @@ legend {
   margin-top: 0;
 }
 
-.form-status--info {
+/* Compound selectors (.form-status.form-status--X) are used here on purpose —
+   style.css has a global `.section--forest p { color: white; }` rule that is
+   MORE specific than a single `.form-status--success` class alone (class+element
+   beats a lone class), so a single-class selector was silently losing that fight
+   and forcing the text white regardless of color set here. The two-class
+   selector wins the specificity battle and makes the color actually apply. */
+
+.form-status.form-status--info {
   color: #ffd7cd;
 }
 
-.form-status--success {
+.form-status.form-status--success {
   display: block;
   padding: 0.85rem 1.1rem;
   border-radius: 8px;
@@ -106,7 +113,7 @@ legend {
   border: 2px solid var(--kelly);
 }
 
-.form-status--error {
+.form-status.form-status--error {
   display: block;
   padding: 0.85rem 1.1rem;
   border-radius: 8px;

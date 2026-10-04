@@ -158,6 +158,13 @@ no insecure resource loads, nothing blocking the domain switch.
       plain small text — green/kelly border for success, rust border for errors — via
       new `.form-status--success` / `.form-status--error` / `.form-status--info`
       classes in `css/contact.css`, so it's much harder to miss after submitting.
+- [x] **Fixed: status message text unreadable (white-on-white).** The new box styling
+      above had the same root cause as the earlier service-card text bug: a global
+      `.section--forest p { color: white; }` rule in `style.css` is a class+element
+      selector, which beats a single class selector like `.form-status--success` in CSS
+      specificity — so the text stayed forced white even sitting on the white message
+      box. Fixed by using compound `.form-status.form-status--success` (and `--error`,
+      `--info`) selectors in `css/contact.css`, which out-specificity the global rule.
 - [ ] **Add remaining real photos.** Still using a gradient/placeholder panel for the
       homepage hero banner (index). Also services.html page (full 11-service grid has
       no photos yet — homepage's 4-card preview does). Brandon has 76 real photos on
