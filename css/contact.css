@@ -82,8 +82,38 @@ legend {
 
 .form-status {
   margin-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  min-height: 0;
+}
+
+/* Empty by default — no box/border until a status message is set via JS */
+.form-status:empty {
+  margin-top: 0;
+}
+
+.form-status--info {
   color: #ffd7cd;
+}
+
+.form-status--success {
+  display: block;
+  padding: 0.85rem 1.1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--kelly);
+  font-weight: 700;
+  border: 2px solid var(--kelly);
+}
+
+.form-status--error {
+  display: block;
+  padding: 0.85rem 1.1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--rust-dark);
+  font-weight: 700;
+  border: 2px solid var(--rust);
 }
 
 @media (max-width: 900px) {

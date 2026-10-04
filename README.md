@@ -55,14 +55,38 @@ Live at `https://balmaras.github.io/asflawncare-website/`.
    (this repo's default/root branch is `master`, not `main`), root folder.
 3. Site confirmed live at the URL above.
 
-### 4. Custom domain (asflawncare.com) — later
-When you're ready:
-1. Add a `CNAME` file to the repo root containing just `asflawncare.com`.
-2. At your domain registrar, point:
-   - `A` records for the apex domain to GitHub Pages' IPs, **or**
-   - a `CNAME` record for `www` to `<username>.github.io`
-3. In repo Settings → Pages, add the custom domain and enable "Enforce HTTPS"
-   once DNS propagates.
+### 4. Custom domain (asflawncare.com) — ready to switch over
+
+Security review done first (see commit/chat notes) — repo is clean, no secrets,
+no insecure resource loads, nothing blocking the domain switch.
+
+1. **`CNAME` file — done.** Added to the repo root containing just `asflawncare.com`.
+   Push it along with the rest of the site.
+2. **At your domain registrar** (wherever asflawncare.com's DNS is currently managed —
+   check if that's still pointed at Squarespace or somewhere else), update DNS:
+   - Add **4 `A` records** for the apex/root domain (`asflawncare.com`) pointing to
+     GitHub Pages' IPs:
+     ```
+     185.199.108.153
+     185.199.109.153
+     185.199.110.153
+     185.199.111.153
+     ```
+   - Add a **`CNAME` record** for `www` pointing to `balmaras.github.io`
+   - **Important:** if the domain currently has `MX` records (for email) through
+     Squarespace or elsewhere, **do not delete those** — only touch the `A`/`CNAME`
+     records used for the website itself, or you'll break existing email.
+   - Remove/replace any old `A` or `CNAME` records that were pointing the domain at
+     Squarespace.
+3. **In GitHub repo Settings → Pages**, enter `asflawncare.com` as the custom domain
+   and save (GitHub will also write/verify the `CNAME` file for you here).
+4. **Wait for DNS to propagate** — can take anywhere from a few minutes to ~48 hours
+   depending on the registrar and TTL settings.
+5. Once GitHub shows the domain as verified (green checkmark in Pages settings),
+   **check "Enforce HTTPS"** — this may take a little extra time to provision the SSL
+   certificate after DNS first resolves.
+6. Confirm both `asflawncare.com` and `www.asflawncare.com` load the site correctly
+   over `https://`.
 
 ## Next steps
 
@@ -106,20 +130,34 @@ When you're ready:
       `.founder-photo` in `css/about.css` uses `object-fit: cover` with
       `object-position: 50% 22%` so his full smiling face stays in frame across both
       the desktop (landscape box) and mobile (shorter box) layouts.
-- [x] **Fixed: founder photo displaying huge/zoomed-in.** The image was rendering far
-      taller than its intended 500px box (filling most of the page). Hardened by
-      wrapping the `<img>` in a `.founder-photo-frame` div with a fixed height and
-      `overflow: hidden`, so the photo is physically clipped to size by the wrapper
-      regardless of any `object-fit`/caching quirks — same reliable pattern as the
-      earlier homepage service-card photo fix. If it still looks oversized after
-      pushing, try a hard refresh (the homepage photos had the same symptom from
-      browser cache, not the code).
+- [x] **Fixed: founder photo displaying huge/zoomed-in.** First attempt wrapped the
+      `<img>` in a fixed-height, `overflow: hidden` frame (cropped to fill the box) —
+      but per request, the final version instead shows the **full, uncropped** photo:
+      `.founder-photo` uses `height: auto` with `max-width: 420px` (280px on mobile) so
+      it scales down to fit neatly beside the text without cropping anything out. Same
+      `border-radius` token as the `.founder-card` text box, so corners match. If it
+      ever displays oversized/square-cornered again, that's almost certainly browser
+      cache (hard refresh), not the code — this has happened before on this project.
 - [x] **Service-area list reordered — done.** The "Areas we serve" list on the
       homepage and the About page's "Areas of Service" list are now alphabetical
       (Armuchee, Calhoun, Cartersville, Cedartown, Kingston, Lindale, Rome), with an
       "... & Surrounding Areas" line added at the end. Note: `images/areas-map.svg`
       still labels the same 7 towns but keeps its own geographic layout (Rome centered
       as home base) — that art wasn't reordered since it's a map, not a list.
+- [x] **Fixed: contact form submitted successfully even when left blank.** The
+      `<form>` has `novalidate` (so validation styling could be controlled manually
+      later), but no JS validation was ever added to replace the browser's native
+      required-field checks — so an empty form still POSTed to Formspree and showed a
+      false "Thanks!" message. Fixed in `js/main.js`: the submit handler now calls
+      `form.checkValidity()` before sending anything; if any required field is empty,
+      it calls `form.reportValidity()` (triggers the browser's built-in "please fill
+      out this field" tooltip on the first missing field) and shows an error message
+      instead of submitting.
+- [x] **More visible submit status — done.** The confirmation/error message under the
+      Submit button (`#formStatus`) now renders as a bordered, colored box instead of
+      plain small text — green/kelly border for success, rust border for errors — via
+      new `.form-status--success` / `.form-status--error` / `.form-status--info`
+      classes in `css/contact.css`, so it's much harder to miss after submitting.
 - [ ] **Add remaining real photos.** Still using a gradient/placeholder panel for the
       homepage hero banner (index). Also services.html page (full 11-service grid has
       no photos yet — homepage's 4-card preview does). Brandon has 76 real photos on
@@ -135,6 +173,30 @@ When you're ready:
 - [x] Swap in real logo (see checklist above).
 - [x] Swap in real Formspree ID (see checklist above).
 - [ ] Point custom domain when ready (see checklist above).
+
+## Future ideas (not started, just notes for later)
+
+- [ ] **Business email on the domain.** Maybe set up Google Workspace (or similar) on
+      asflawncare.com for a real address like `team@asflawncare.com` instead of the
+      current Gmail address, once the domain is pointed to GitHub Pages.
+- [ ] **Revisit the Contact page photo again.** Currently the real truck-decal close-up
+      (`images/truck-decal.jpg`). Open to trying something else down the line —
+      `contact-photo.jpg` (dry creek bed) and `contact-illustration.svg` (custom front-yard
+      illustration) are both still sitting unused in `images/` from earlier rounds.
+- [ ] **Online payments.** Potentially add Stripe-based payment collection (e.g. for
+      deposits or invoices) per the project's standard tech stack — would need a Stripe
+      account and likely a simple checkout/payment-link flow added to the site.
+- [ ] **Privacy policy / legal disclaimers.** The contact form collects name, email,
+      phone, and address (via Formspree), so a basic privacy policy page explaining what's
+      collected and how it's used would be good practice — and genuinely useful cover for
+      the business, not just a formality. Also worth a general liability/terms disclaimer
+      (e.g. estimates are non-binding, work subject to a separate agreement, etc.) if
+      Francisco wants one. **Not legal advice** — worth having an actual attorney review
+      or draft the final wording, especially the liability/disclaimer language; I can
+      build the page and wire it in once there's text to use.
+- [ ] **Gallery of work.** Once professional photos are taken (vs. the archival/phone
+      photos used so far), build a dedicated gallery/portfolio page or section showing
+      finished jobs — before/after shots, standout installs, etc.
 
 ## File structure
 
