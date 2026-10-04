@@ -48,6 +48,22 @@ the raw internal field dump in the quoted history.
 No API keys or secrets are stored in this repo — Formspree's public form
 endpoint is safe to expose in client-side code.
 
+### Security hardening — ✅ done
+A `Content-Security-Policy` meta tag was added to every page's `<head>`
+(defense-in-depth — not urgent for a static site with no user-generated
+content, but cheap to add and worth having). Policy, in plain terms:
+- Only loads scripts/styles/images from this same site, plus Google Fonts
+  (styles from `fonts.googleapis.com`, font files from `fonts.gstatic.com`)
+- Only allows network requests (the contact form's AJAX submit) to go to
+  `formspree.io`
+- Blocks the site from being embedded in an iframe elsewhere (`frame-ancestors
+  'none'`) and blocks `<object>`/plugin embeds entirely
+
+This required removing the one remaining inline `style="margin-bottom:1rem;"`
+on the footer logo (present on all 4 pages) and moving it to a `.footer-logo`
+class in `css/style.css` instead — a strict CSP can't allow inline styles
+without weakening the policy (`'unsafe-inline'`), so this keeps it tight.
+
 ### 3. GitHub Pages — ✅ done
 Live at `https://balmaras.github.io/asflawncare-website/`.
 1. Repo pushed to GitHub (public — no secrets in here).

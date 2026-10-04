@@ -299,6 +299,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .footer-grid .nav__logo-mark { width: 64px; height: 64px; }
 
+/* Was an inline style="margin-bottom:1rem" on the footer logo link on every
+   page — moved here so the site has zero inline styles, which lets the
+   Content-Security-Policy below skip 'unsafe-inline' for style-src. */
+.footer-logo { margin-bottom: 1rem; }
+
 .footer-col h4 {
   font-family: var(--font-heading);
   font-size: 1.05rem;
