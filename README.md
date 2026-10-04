@@ -90,15 +90,16 @@ When you're ready:
       home base and all 7 service towns (Armuchee, Cartersville, Calhoun, Cedartown,
       Kingston, Lindale) pinned and labeled. Lightweight (~6KB) since it's vector, not a
       photo.
-- [x] **Contact page graphic — done (switched from photo to illustration).** Initially
-      used `images/contact-photo.jpg` (a real dry creek bed photo from the archive), but
-      per request this was replaced with a custom illustration instead:
-      `images/contact-illustration.svg` — a welcoming front-yard scene (house, mowed
-      lawn with signature stripe texture, paved walkway, trimmed shrubs, mailbox) ending
-      in a "We'd love to hear from you" caption. Same rationale as the Areas-of-Service
-      map: no real photo fit this specific "come say hi" purpose, so a branded vector
-      graphic was built instead. Lightweight (~6KB). `contact-photo.jpg` is left in the
-      `images/` folder but no longer referenced, in case it's wanted elsewhere later.
+- [x] **Contact page photo — done (switched again, now a real photo).** Went through a
+      few rounds here: first a real dry-creek photo (`contact-photo.jpg`), then a custom
+      illustration (`contact-illustration.svg`), and now settled on a real photo again —
+      `images/truck-decal.jpg`, a close-up macro shot of the actual old ASF truck door
+      decal (A.S.F. Lawn Care, (706) 331-9311, and the full service list), lightly
+      enhanced (color/contrast/sharpness) and cropped to trim the dark out-of-focus
+      background. Ties directly into the site's original truck-sign branding and gives
+      the Contact page an authentic, personal touch. `contact-photo.jpg` and
+      `contact-illustration.svg` are both left in `images/` but no longer referenced, in
+      case either is wanted again later.
 - [x] **Founder photo — done.** `images/founder.jpg` — a real headshot of Francisco
       Almaras, lightly enhanced (color/contrast/sharpness) via PIL and resized for web.
       Wired into the About page's founder section, replacing the gradient placeholder.
