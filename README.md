@@ -105,6 +105,14 @@ When you're ready:
       `.founder-photo` in `css/about.css` uses `object-fit: cover` with
       `object-position: 50% 22%` so his full smiling face stays in frame across both
       the desktop (landscape box) and mobile (shorter box) layouts.
+- [x] **Fixed: founder photo displaying huge/zoomed-in.** The image was rendering far
+      taller than its intended 500px box (filling most of the page). Hardened by
+      wrapping the `<img>` in a `.founder-photo-frame` div with a fixed height and
+      `overflow: hidden`, so the photo is physically clipped to size by the wrapper
+      regardless of any `object-fit`/caching quirks — same reliable pattern as the
+      earlier homepage service-card photo fix. If it still looks oversized after
+      pushing, try a hard refresh (the homepage photos had the same symptom from
+      browser cache, not the code).
 - [x] **Service-area list reordered — done.** The "Areas we serve" list on the
       homepage and the About page's "Areas of Service" list are now alphabetical
       (Armuchee, Calhoun, Cartersville, Cedartown, Kingston, Lindale, Rome), with an
