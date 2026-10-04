@@ -99,10 +99,22 @@ When you're ready:
       map: no real photo fit this specific "come say hi" purpose, so a branded vector
       graphic was built instead. Lightweight (~6KB). `contact-photo.jpg` is left in the
       `images/` folder but no longer referenced, in case it's wanted elsewhere later.
+- [x] **Founder photo — done.** `images/founder.jpg` — a real headshot of Francisco
+      Almaras, lightly enhanced (color/contrast/sharpness) via PIL and resized for web.
+      Wired into the About page's founder section, replacing the gradient placeholder.
+      `.founder-photo` in `css/about.css` uses `object-fit: cover` with
+      `object-position: 50% 22%` so his full smiling face stays in frame across both
+      the desktop (landscape box) and mobile (shorter box) layouts.
+- [x] **Service-area list reordered — done.** The "Areas we serve" list on the
+      homepage and the About page's "Areas of Service" list are now alphabetical
+      (Armuchee, Calhoun, Cartersville, Cedartown, Kingston, Lindale, Rome), with an
+      "... & Surrounding Areas" line added at the end. Note: `images/areas-map.svg`
+      still labels the same 7 towns but keeps its own geographic layout (Rome centered
+      as home base) — that art wasn't reordered since it's a map, not a list.
 - [ ] **Add remaining real photos.** Still using a gradient/placeholder panel for the
-      homepage hero banner (index) and the about-page founder photo. Also services.html
-      page (full 11-service grid has no photos yet — homepage's 4-card preview does).
-      Brandon has 76 real photos on hand to pick from for these spots.
+      homepage hero banner (index). Also services.html page (full 11-service grid has
+      no photos yet — homepage's 4-card preview does). Brandon has 76 real photos on
+      hand to pick from for these spots.
 - [ ] **Consider a styling refresh.** Current build reuses the original Squarespace
       palette and layout closely. Two directions to weigh:
       1. Stay closer to the original screenshots (safer, more familiar to existing customers).
