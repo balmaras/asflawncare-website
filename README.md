@@ -5,7 +5,8 @@ Static site for ASF Lawn Care, built with plain HTML/CSS/JS for GitHub Pages.
 ## Status
 
 **Built:** `index.html`, `contact.html`, `services.html`, `about.html` — full starting site.
-**Live:** https://balmaras.github.io/asflawncare-website/ (repo: github.com/balmaras/asflawncare-website, branch: `master`)
+**Live:** https://asflawncare.com (custom domain, ✅ live) — also still resolves at
+https://balmaras.github.io/asflawncare-website/ (repo: github.com/balmaras/asflawncare-website, branch: `master`)
 
 ## Stack
 
@@ -71,16 +72,14 @@ Live at `https://balmaras.github.io/asflawncare-website/`.
    (this repo's default/root branch is `master`, not `main`), root folder.
 3. Site confirmed live at the URL above.
 
-### 4. Custom domain (asflawncare.com) — ready to switch over
+### 4. Custom domain (asflawncare.com) — ✅ done, live
 
 Security review done first (see commit/chat notes) — repo is clean, no secrets,
 no insecure resource loads, nothing blocking the domain switch.
 
 1. **`CNAME` file — done.** Added to the repo root containing just `asflawncare.com`.
-   Push it along with the rest of the site.
-2. **At your domain registrar** (wherever asflawncare.com's DNS is currently managed —
-   check if that's still pointed at Squarespace or somewhere else), update DNS:
-   - Add **4 `A` records** for the apex/root domain (`asflawncare.com`) pointing to
+2. **DNS updated at Squarespace Domains** (where asflawncare.com was/is registered):
+   - Added **4 `A` records** for the apex/root domain (`asflawncare.com`) pointing to
      GitHub Pages' IPs:
      ```
      185.199.108.153
@@ -88,21 +87,30 @@ no insecure resource loads, nothing blocking the domain switch.
      185.199.110.153
      185.199.111.153
      ```
-   - Add a **`CNAME` record** for `www` pointing to `balmaras.github.io`
-   - **Important:** if the domain currently has `MX` records (for email) through
-     Squarespace or elsewhere, **do not delete those** — only touch the `A`/`CNAME`
-     records used for the website itself, or you'll break existing email.
-   - Remove/replace any old `A` or `CNAME` records that were pointing the domain at
-     Squarespace.
-3. **In GitHub repo Settings → Pages**, enter `asflawncare.com` as the custom domain
-   and save (GitHub will also write/verify the `CNAME` file for you here).
-4. **Wait for DNS to propagate** — can take anywhere from a few minutes to ~48 hours
-   depending on the registrar and TTL settings.
-5. Once GitHub shows the domain as verified (green checkmark in Pages settings),
-   **check "Enforce HTTPS"** — this may take a little extra time to provision the SSL
-   certificate after DNS first resolves.
-6. Confirm both `asflawncare.com` and `www.asflawncare.com` load the site correctly
+   - Added a **`CNAME` record** for `www` pointing to `balmaras.github.io`
+   - No `MX` records existed on the domain, so there was no email to protect/break.
+   - Deleted the old **"Squarespace Defaults"** preset group (A records to Squarespace's
+     IPs + `www` CNAME to `ext-sq.squarespace.com`) and the **"Squarespace Domain
+     Connect"** preset group (`_domainconnect` CNAME) — both were leftover from
+     Squarespace hosting and had to go for GitHub Pages to take over.
+3. **In GitHub repo Settings → Pages**, `asflawncare.com` is set as the custom domain
+   (verified, green checkmark) and **"Enforce HTTPS" is checked and working.**
+4. Confirmed both `asflawncare.com` and `www.asflawncare.com` load the site correctly
    over `https://`.
+
+**[x] Fixed: "too many redirects" error right after the switch.** Showed up in Chrome
+(including incognito) but Safari loaded the site fine the whole time — that was the
+key clue it wasn't server-side. Ruled out, in order: a Squarespace domain-forwarding
+rule (none existed), and DNS/nameserver misconfiguration (a direct fetch of
+`https://asflawncare.com` from outside the browser returned a clean 200 with the
+correct page the entire time, proving GitHub/DNS were already correct). The real
+cause was **Chrome-specific browser caching** — old HSTS policy and/or a stale DNS/
+socket-pool cache left over from when the domain pointed at Squarespace. Fixed by, in
+Chrome: `chrome://net-internals/#hsts` → delete any stored policy for
+`asflawncare.com` and `www.asflawncare.com`, `chrome://net-internals/#dns` → Clear
+host cache, `chrome://net-internals/#sockets` → Flush socket pools, then a full
+quit/restart of Chrome. **Confirmed fixed.** Not a code or GitHub Pages issue at all —
+good to know for next time a domain gets re-pointed.
 
 ## Next steps
 
@@ -195,7 +203,22 @@ no insecure resource loads, nothing blocking the domain switch.
       or compare against.
 - [x] Swap in real logo (see checklist above).
 - [x] Swap in real Formspree ID (see checklist above).
-- [ ] Point custom domain when ready (see checklist above).
+- [x] Point custom domain — done, live at asflawncare.com (see checklist above).
+- [ ] **Create a rollout procedure for changes, and how to verify them.** Reminder for
+      next time, per Brandon's request after the domain-switch troubleshooting above:
+      with DNS caching, browser-specific caching (HSTS, DNS, socket pools), and plain
+      stale-deploy confusion all having come up on this project, it's worth writing
+      down a short, repeatable checklist for shipping a change, e.g.:
+      1. Push the change to GitHub.
+      2. Confirm it deployed (check the repo's Pages/Actions status, or just load the
+         raw file URL on GitHub to confirm the new content is there).
+      3. Hard-refresh / check in an incognito window first, before assuming a bug.
+      4. If one browser shows something another doesn't, suspect that browser's own
+         cache (HSTS/DNS/sockets in Chrome) before suspecting the code.
+      5. For anything domain/DNS-related, a direct fetch of the live URL (outside the
+         browser) is the fastest way to confirm whether it's server-side or
+         browser-side.
+      Not written up yet — just flagging it so it doesn't get lost.
 
 ## Future ideas (not started, just notes for later)
 
@@ -255,4 +278,3 @@ asf-lawncare-website/
 
 Business info: Est. 2006 · Rome, GA · almaras.asf@gmail.com · (706) 331-9311
 Service area: Armuchee, Rome, Cartersville, Calhoun, Cedartown, Kingston, Lindale
-
